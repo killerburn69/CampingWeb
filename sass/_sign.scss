@@ -1,0 +1,33 @@
+.sign{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+    // display: none;
+    &-link{
+        color: $textColor;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    &-up:hover{
+        color: white;
+    }
+    &-in{
+        padding: 13px 38px;
+        border: 1px solid $textColor;
+        border-radius: 25px;
+        &:hover{
+            background-color: $primaryColor;
+            color: white;
+            transition: all 0.2s linear;
+
+        }
+    }
+}
+@media screen and (max-width:1090px){
+    .sign{
+        &-link{
+            font-size: 15px;
+        }
+    }
+ }

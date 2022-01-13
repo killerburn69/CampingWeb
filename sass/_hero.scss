@@ -1,0 +1,107 @@
+.hero{
+    transform: translateY(50%);
+    &-main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;  
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    &-heading{
+        color: white;
+        font-family: $font;
+        font-size: 60px;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 35px;
+    }
+    &-desc{
+        color: white;
+        line-height: 1.2;
+        font-size: 18px;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+    &-button{
+        display: inline-block;
+        padding: 13px 50px;
+        border-radius: 25px;
+        font-weight: 400;
+        font-size: 20px;
+        position: relative;
+        transition: all 0.25s;
+        border: none;
+        outline: none;
+        &::after{
+            content: '';
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            border-radius: 10rem;
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.35s;
+        }
+        &:hover{
+            transform: translateY(-0.5rem);
+            box-shadow: 0 1rem 2rem rgba(0 , 0, 0, 0.2);
+        }
+        &:hover::after{
+            transform: scaleX(1.5) scaleY(1.7);
+            opacity: 0;
+        }
+    }
+}
+.button--white{
+    color: white;
+    background-color: $primaryColor;
+
+}
+.button--white:after{
+    background-color: $primaryColor;
+}
+.button--effect{
+    animation: fadeInUp 0.75s ease-out 0.75s;
+    animation-fill-mode: backwards;
+}
+@keyframes fadeInUp {
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@media screen and (max-width:700px) {
+    .hero{
+        &-heading{
+            font-size: 40px;
+        }
+        &-desc{
+            font-size: 14px;
+        }
+        &-button{
+            font-size: 16px;
+        }
+    }
+}
+@media (min-width:700px) and (max-width:769px) {
+    .hero{
+        &-heading{
+            font-size: 50px;
+        }
+        &-desc{
+            font-size: 16px;
+        }
+        &-button{
+            font-size: 18px;
+        }
+    }
+}

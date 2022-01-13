@@ -1,0 +1,91 @@
+.header{
+    padding-top: 40px;
+    background-image: url('https://images.pexels.com/photos/3569890/pexels-photo-3569890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:750px;
+    font-family: $font-primary;
+    &-main{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 40px;
+        padding: 20px;
+        transition: all 0.2s ease-in;
+        z-index: 100;
+    }
+    // &-menu{
+    //     display: flex;
+    //     align-items: center;
+    //     gap: 0 49px;
+    // }
+    &-sign{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-icon{
+        display: none;
+        font-size: 25px;
+        color: $primaryColor;
+        padding: 15px;
+        background-color: white;
+        border-radius: 20px;
+        cursor: pointer;
+
+    }
+    
+}
+.header-main.activeNavbar{
+    background-color: $anotherColor;
+}
+@media screen and (max-width:769px) {
+    .header{
+        height: 650px;
+    }
+}
+@media screen and (max-width:971px) {
+    .header{
+        &-main{
+            justify-content: space-between;
+        }
+        &-sign{
+            // display: none;
+            flex-direction: column;
+            gap: 60px 0px;
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            right: 0;
+            top:0;
+            background-color: $anotherColor;
+            z-index: 99;
+            border-left: 1px solid $primaryColor;
+            padding-top: 40px;
+            padding-right: 20px;
+            padding-left: 20px;
+            justify-content: flex-start;
+            transform: translateX(100%);
+            will-change: transform;
+            transition: all 0.2s linear;
+        }
+        &-icon{
+            display: block;
+        }
+    }
+}
+.header-sign.isActive{
+    transform: translateX(0);
+}
+@media screen and (max-width:1090px){
+   .header{
+       &-menu{
+           gap: 0 30px;
+       }
+   }
+}
