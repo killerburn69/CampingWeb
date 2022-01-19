@@ -5,16 +5,35 @@
     gap: 0 30px;
     // display: none;
     &-link{
-        color: $textColor;
+        color: white;
         font-size: 18px;
         font-weight: 400;
     }
-    &-up:hover{
-        color: white;
+    &-up{
+        position: relative;
+        &::after{
+            content:'' ;
+            position: absolute;
+            top:0;
+            // transform: rotate(30deg);
+            left: 0;
+            width: 100%;
+            background-color: $primaryColor;
+            height: 2px;
+            z-index: -2;
+            // transition: 0.3s;
+            transform:  scale(0,1) rotate(0);
+            transform-origin: 0% 100%;
+            transition: transform 0.3s ease;
+        }
+       
+        &:hover:after{
+            transform: scale(1,1) rotate(20deg);
+        }
     }
     &-in{
         padding: 13px 38px;
-        border: 1px solid $textColor;
+        border: 1px solid white;
         border-radius: 25px;
         &:hover{
             background-color: $primaryColor;

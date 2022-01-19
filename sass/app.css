@@ -59,13 +59,41 @@ img {
   padding: 0 20px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 15px;
   line-height: 1;
   font-size: "Roboto", sans-serif;
   color: #8D8D8D;
   font-weight: 300;
-  background-color: #FFD2C6;
+  background-color: #FAF4F2;
+}
+
+.ontop {
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 17px 0px #e76f51;
+          box-shadow: 0px 0px 17px 0px #e76f51;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.ontop .icon-up {
+  color: #E76F51;
+}
+
+.ontop.activeUp {
+  display: block;
 }
 
 .header {
@@ -191,7 +219,7 @@ body {
 }
 
 .menu-link {
-  color: #8D8D8D;
+  color: white;
   font-size: 18px;
   font-weight: 400;
   position: relative;
@@ -200,26 +228,25 @@ body {
 .menu-link::after {
   content: '';
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
+  top: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   background-color: #e76f51;
   height: 2px;
   z-index: -2;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.menu-link:hover {
-  color: white;
+  -webkit-transform: scale(0, 1) rotate(0);
+          transform: scale(0, 1) rotate(0);
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .menu-link:hover:after {
-  width: 80%;
+  -webkit-transform: scale(1, 1) rotate(20deg);
+          transform: scale(1, 1) rotate(20deg);
 }
 
 .menu-close {
@@ -267,18 +294,42 @@ body {
 }
 
 .sign-link {
-  color: #8D8D8D;
+  color: white;
   font-size: 18px;
   font-weight: 400;
 }
 
-.sign-up:hover {
-  color: white;
+.sign-up {
+  position: relative;
+}
+
+.sign-up::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e76f51;
+  height: 2px;
+  z-index: -2;
+  -webkit-transform: scale(0, 1) rotate(0);
+          transform: scale(0, 1) rotate(0);
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.sign-up:hover:after {
+  -webkit-transform: scale(1, 1) rotate(20deg);
+          transform: scale(1, 1) rotate(20deg);
 }
 
 .sign-in {
   padding: 13px 38px;
-  border: 1px solid #8D8D8D;
+  border: 1px solid white;
   border-radius: 25px;
 }
 
@@ -765,20 +816,24 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 19px 50px 19px 50px;
-  gap: 0 60px;
+  gap: 0 20px;
   background-color: #F8E1DB;
   background-image: url(../img/MaskGroup3.png);
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 20px;
+  border-radius: 40px 40px 40px 40px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 .input-content {
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
 }
 
@@ -795,6 +850,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 30px;
+  max-width: 500px;
 }
 
 .input-form {
@@ -819,19 +875,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0 15px;
+  gap: 0 5px;
 }
 
 .input-mail {
-  font-size: 30px;
+  font-size: 25px;
   color: #8D8D8D;
+  opacity: 0.6;
 }
 
 .input-type {
   outline: none;
   border: none;
-  padding: 15px;
-  max-width: 100px;
+  max-width: 250px;
+  font-size: 15px;
 }
 
 .input-plane {
@@ -846,7 +903,16 @@ body {
 }
 
 .input-plane:hover {
-  background-color: #f35731;
+  -webkit-box-shadow: 0px 2px 93px 6px #e76f51;
+          box-shadow: 0px 2px 93px 6px #e76f51;
+}
+
+.input-image {
+  width: 400px;
+}
+
+.input-image img {
+  width: 100%;
 }
 
 @media screen and (max-width: 700px) {
@@ -882,6 +948,10 @@ body {
   padding: 103px 0px 60px 0px;
   background-color: #F8E1DB;
   border-radius: 120px 120px 0 0;
+}
+
+.footer-main {
+  padding: 0 20px;
 }
 
 .footer-list {

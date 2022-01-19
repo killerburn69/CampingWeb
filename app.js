@@ -2,6 +2,7 @@ const openToggle = document.querySelector('.header-icon')
 const menu = document.querySelector('.header-sign')
 const closeToggle = document.querySelector('.menu-close')
 const navbar = document.querySelector('.header-main')
+const arrowUp = document.querySelector('.ontop')
 openToggle.addEventListener('click', function(e){
     e.preventDefault()
     menu.classList.add('isActive')
@@ -14,9 +15,11 @@ window.addEventListener('scroll', function(){
     if(window.scrollY > 1)
     {
         navbar.classList.add('activeNavbar')
+        arrowUp.classList.add('activeUp')
     }
     else{
         navbar.classList.remove('activeNavbar')
+        arrowUp.classList.remove('activeUp')
     }
 })
 

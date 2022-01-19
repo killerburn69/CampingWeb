@@ -3,6 +3,9 @@
     padding: 103px 0px 60px 0px;
     background-color: #F8E1DB;
     border-radius: 120px 120px 0 0;
+    &-main{
+        padding: 0 20px;
+    }
     &-list{
         display: grid;
         grid-template-columns: 1fr 1fr;

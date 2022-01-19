@@ -1,0 +1,19 @@
+.ontop{
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 17px 0px rgba(231,111,81,1);
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    transition: all 0.2s ease-in-out;
+    .icon-up{
+        color: #E76F51;
+    }
+    &.activeUp{
+        display: block;
+    }
+}

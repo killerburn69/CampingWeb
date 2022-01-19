@@ -3,17 +3,18 @@
     margin-bottom: 150px;
     &-main{
         display: flex;
+        justify-content: space-between;
         padding: 19px 50px 19px 50px;
-        gap: 0 60px;
+        gap: 0 20px;
         background-color: #F8E1DB;
         background-image: url(../img/MaskGroup3.png);
         background-size: cover;
         background-repeat: no-repeat;
-        border-radius: 20px;
-        align-items: center;
+        border-radius: 40px 40px 40px 40px;
+        align-items: center;overflow: hidden;
     }
     &-content{
-        max-width: 500px;
+        max-width: 600px;
         width: 100%;
     }
     &-heading{
@@ -28,6 +29,7 @@
         font-weight: 400;
         line-height: 1.6;
         margin-bottom: 30px; 
+        max-width: 500px;
     }
     &-form{
         display: flex;
@@ -40,17 +42,19 @@
     &-input{
         display: flex;
         align-items: center;
-        gap: 0 15px;
+        gap: 0 5px;
     }
     &-mail{
-        font-size: 30px;
+        font-size: 25px;
         color: $textColor;
+        opacity: 0.6;
     }
     &-type{
         outline: none;
         border: none;
-        padding: 15px;
-        max-width: 100px;
+        // padding: 15px 0;
+        max-width: 250px;
+        font-size: 15px;
     }
     &-plane{
         color: white;
@@ -61,10 +65,16 @@
         transition: all 0.3s;
         cursor: pointer;
         &:hover{
-            background-color: #f35731;
+            // background-color: #f35731;
+            box-shadow: 0px 2px 93px 6px rgba(231,111,81,1);
         }
     }
-    
+    &-image{
+        width: 400px;
+        img{
+            width: 100%;
+        }
+    }
 }
 @media screen and (max-width:700px) {
     .input{
